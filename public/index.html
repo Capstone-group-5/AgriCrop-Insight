@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Crop</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="main-container" x-data="{ sidebarOpen: false }">
+        <!-- Toggle Button -->
+        <button class="toggle-btn" @click="sidebarOpen = !sidebarOpen">
+            &#9776; <!-- This is the hamburger icon -->
+        </button>
+
+        <!-- Left Sidebar Navigation -->
+        <nav class="sidebar" :class="{ 'hidden': !sidebarOpen }">
+            <ul>
+                <li><a href="crop-analysis.index.html">Crop Analysis</a></li>
+                <li><a href="#" @click.prevent="alert('Machinery Analysis feature coming soon!')">Machinery Analysis</a></li>
+                <li><a href="#" @click.prevent="alert('Settings feature coming soon!')">Settings</a></li>
+                <li><a href="#" @click.prevent="alert('Task Appointment feature coming soon!')">Task Appointment</a></li>
+                <li><a href="#" @click.prevent="alert('Crop Inventory feature coming soon!')">Crop Inventory</a></li>
+                <li><a href="#" @click.prevent="alert('Placeholder feature coming soon!')">Placeholder</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="content">
+            <header>
+                <h1>AgriCrop Insight</h1>
+            </header>
+            <div class="features">
+                <div class="feature-item" @click="window.location.href = 'crop-analysis.index.html'">
+                    <img src="../images/download.jpeg" alt="Crop Analysis">
+                    <p>Crop Analysis</p>
+                </div>
+                <div class="feature-item" @click="alert('Machinery Analysis feature coming soon!')">
+                    <img src="../images/Machinery.jpeg" alt="Machinery Analysis">
+                    <p>Machinery Analysis</p>
+                </div>
+                <div class="feature-item" @click="alert('Settings feature coming soon!')">
+                    <img src="../images/download.png" alt="Settings">
+                    <p>Settings</p>
+                </div>
+                <div class="feature-item" @click="alert('Task Appointment feature coming soon!')">
+                    <img src="../images/Task.png" alt="Task Appointment">
+                    <p>Task Appointment</p>
+                </div>
+                <div class="feature-item" @click="alert('Crop Inventory feature coming soon!')">
+                    <img src="../images/crop inventory.jpeg" alt="Crop Inventory">
+                    <p>Crop Inventory</p>
+                </div>
+                <div class="feature-item" @click="alert('Placeholder feature coming soon!')">
+                    <img src="placeholder.png" alt="Placeholder">
+                    <p>Placeholder</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

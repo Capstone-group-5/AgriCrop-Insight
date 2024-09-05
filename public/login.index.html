@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for the Registration Form */
+        .registration-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header h1 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Section Styling */
+        .registration-form-section {
+            margin-top: 20px;
+        }
+
+        /* Form Group Styling */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* Button Styling */
+        button {
+            background-color: #25b354b0;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #159e3ee0;
+        }
+
+        /* Link Styling */
+        a {
+            color: #159e3ee0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .registration-container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 18px;
+            }
+        }
+        
+        /* x-cloak CSS rule */
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container" x-data="{ showSignUpForm: false, id: '', organization: '', username: '', surname: '', email: '', userPassword: '', userRole: '' }">
+        <header>
+            <h1>Sign Up</h1>
+        </header>
+
+        <section class="registration-form-section">
+            <!-- Login Section -->
+            <div x-show="!showSignUpForm">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label for="username"> email</label>
+                    <input type="text" id="email" x-model="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" x-model="userPassword" placeholder="Enter your password" required>
+                </div>
+
+                <button>Log In</button>
+                <p><a href="#" @click.prevent="alert('Forgot Password feature is under development')">Forgot Password?</a></p>
+                <p><a href="#" @click.prevent="showSignUpForm = true">Sign Up</a></p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div x-show="showSignUpForm">
+                <h2>Additional Information</h2>
+               
+                <div class="form-group">
+                    <label for="organization">Organization:</label>
+                    <input type="text" id="organization" x-model="organization" placeholder="Enter your organization" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="surname">Surname:</label>
+                    <input type="text" id="surname" x-model="surname" placeholder="Enter your surname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" x-model="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-password">User Password:</label>
+                    <input type="password" id="user-password" x-model="userPassword" placeholder="Enter your user password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-role">User Role:</label>
+                    <input type="text" id="user-role" x-model="userRole" placeholder="Enter your user role" required>
+                </div>
+
+                <button @click="submitSignUp()">Submit</button>
+                <button @click="showSignUpForm = false">Back</button>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        function submitSignUp() {
+            // Add your form submission logic here
+            alert('Form Submitted');
+        }
+    </script>
+</body>
+</html>

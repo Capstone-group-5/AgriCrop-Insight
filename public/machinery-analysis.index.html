@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machinery Analysis</title>
+    <link rel="stylesheet" href="machinery-analysis.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="main-container" x-data="{ machineryList: [], name: '', type: '', problem: '' }">
+        <header>
+            <h1>Machinery Analysis</h1>
+        </header>
+
+        <!-- Section to add new machinery -->
+        <section class="form-section">
+            <h2>Add New Machinery</h2>
+            <div class="form-group">
+                <label for="machinery-name">Machinery Name:</label>
+                <input type="text" id="machinery-name" x-model="name" placeholder="Enter machinery name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="machinery-type">Machinery Type:</label>
+                <select id="machinery-type" x-model="type" required>
+                    <option value="" disabled>Select machinery type</option>
+                    <option value="Tractor">Tractor</option>
+                    <option value="Truck">Truck</option>
+                    <option value="Harvester">Harvester</option>
+                    <option value="Sprayer">Sprayer</option>
+                    <option value="Plow">Plow</option>
+                    <option value="Fertilizer">Fertilizer</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="machinery-problem">Problem Description:</label>
+                <textarea id="machinery-problem" x-model="problem" placeholder="Describe the problem" required></textarea>
+            </div>
+
+            <button @click="machineryList.push({ name, type, problem }); name = ''; type = ''; problem = '';">
+                Add Machinery
+            </button>
+        </section>
+
+        <!-- Table to display machinery data -->
+        <section class="table-section">
+            <h2>Machinery List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Problem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="(machinery, index) in machineryList" :key="index">
+                        <tr>
+                            <td x-text="machinery.name"></td>
+                            <td x-text="machinery.type"></td>
+                            <td x-text="machinery.problem"></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

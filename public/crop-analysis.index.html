@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Analysis</title>
+    <link rel="stylesheet" href="crop-analysis.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="crop-analysis-container" x-data="cropAnalysis()">
+        <h1>Crop Analysis</h1>
+
+        <!-- Input fields for Crop Analysis -->
+        <div class="field-section">
+            <label for="field-size">Field size in hectare:</label>
+            <input type="number" id="field-size" x-model="fieldSize">
+        </div>
+
+        <h2>Soil Quality</h2>
+        <div class="soil-quality">
+            <div>
+                <label for="ph-value">pH Value:</label>
+                <input type="number" id="ph-value" x-model="phValue">
+            </div>
+
+            <div>
+                <label for="nitrogen">Nitrogen:</label>
+                <input type="number" id="nitrogen" x-model="nitrogen">
+            </div>
+
+            <div>
+                <label for="potassium">Potassium:</label>
+                <input type="number" id="potassium" x-model="potassium">
+            </div>
+
+            <div>
+                <label for="phosphorus">Phosphorus:</label>
+                <input type="number" id="phosphorus" x-model="phosphorus">
+            </div>
+        </div>
+
+        <h2>Environmental Factors</h2>
+        <div class="environmental-factors">
+            <div>
+                <label for="temperature">Temperature:</label>
+                <input type="number" id="temperature" x-model="temperature">
+            </div>
+
+            <div>
+                <label for="rainfall">Rainfall:</label>
+                <input type="number" id="rainfall" x-model="rainfall">
+            </div>
+
+            <div>
+                <label for="humidity">Humidity:</label>
+                <input type="number" id="humidity" x-model="humidity">
+            </div>
+        </div>
+
+        <h2>Select Crop Type</h2>
+        <div class="crop-selection">
+            <select x-model="cropType">
+                <option value="">Select a crop</option>
+                <option value="maize">Maize</option>
+                <option value="banana">Banana</option>
+                <option value="mango">Mango</option>
+                <option value="grapes">Grapes</option>
+                <option value="watermelon">Watermelon</option>
+                <option value="apple">Apple</option>
+                <option value="orange">Orange</option>
+                <option value="papaya">Papaya</option>
+            </select>
+        </div>
+
+        <div class="actions">
+            <button @click="submitForm">Submit</button>
+            <button @click="goBack">Back</button>
+        </div>
+
+    </div>
+
+    <script>
+        function cropAnalysis() {
+            return {
+                fieldSize: '',
+                phValue: '',
+                nitrogen: '',
+                potassium: '',
+                phosphorus: '',
+                temperature: '',
+                rainfall: '',
+                humidity: '',
+                cropType: '',
+                
+                // Submit button function
+                submitForm() {
+                    console.log({
+                        fieldSize: this.fieldSize,
+                        phValue: this.phValue,
+                        nitrogen: this.nitrogen,
+                        potassium: this.potassium,
+                        phosphorus: this.phosphorus,
+                        temperature: this.temperature,
+                        rainfall: this.rainfall,
+                        humidity: this.humidity,
+                        cropType: this.cropType,
+                    });
+
+                    alert('Crop analysis data submitted successfully.');
+                },
+                
+                // Back button function
+                goBack() {
+                    window.location.href = 'index.html';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
