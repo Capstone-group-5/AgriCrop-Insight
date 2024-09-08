@@ -8,7 +8,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-    <div class="main-container" x-data="{ machineryList: [], name: '', type: '', problem: '' }">
+    <div class="main-container" x-data="machineryAnalysis()">
         <header>
             <h1>Machinery Analysis</h1>
         </header>
@@ -16,14 +16,23 @@
         <!-- Section to add new machinery -->
         <section class="form-section">
             <h2>Add New Machinery</h2>
+
+            <!-- Organisation -->
             <div class="form-group">
-                <label for="machinery-name">Machinery Name:</label>
-                <input type="text" id="machinery-name" x-model="name" placeholder="Enter machinery name" required>
+                <label for="organisation-name">Organisation:</label>
+                <input type="text" id="organisation-name" x-model="organisation" placeholder="Enter organisation name" required>
             </div>
 
+            <!-- Machinery Registration Number -->
+            <div class="form-group">
+                <label for="machinery-reg_number">Machinery Registration Number:</label>
+                <input type="text" id="machinery-reg_number" x-model="reg_number" placeholder="Enter machinery registration number" required>
+            </div>
+
+            <!-- Machinery Type -->
             <div class="form-group">
                 <label for="machinery-type">Machinery Type:</label>
-                <select id="machinery-type" x-model="type" required>
+                <select id="machinery-type" x-model="condition" required>
                     <option value="" disabled>Select machinery type</option>
                     <option value="Tractor">Tractor</option>
                     <option value="Truck">Truck</option>
@@ -34,14 +43,14 @@
                 </select>
             </div>
 
+            <!-- Issue Description -->
             <div class="form-group">
-                <label for="machinery-problem">Problem Description:</label>
-                <textarea id="machinery-problem" x-model="problem" placeholder="Describe the problem" required></textarea>
+                <label for="machinery-issue">Issue Description:</label>
+                <textarea id="machinery-issue" x-model="issue" placeholder="Describe the issue" required></textarea>
             </div>
 
-            <button @click="machineryList.push({ name, type, problem }); name = ''; type = ''; problem = '';">
-                Add Machinery
-            </button>
+            <!-- Add Button -->
+            <button @click="addMachinery()">Add Machinery</button>
         </section>
 
         <!-- Table to display machinery data -->
@@ -50,22 +59,53 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Organisation</th>
+                        <th>Registration Number</th>
                         <th>Type</th>
-                        <th>Problem</th>
+                        <th>Issue</th>
                     </tr>
                 </thead>
                 <tbody>
                     <template x-for="(machinery, index) in machineryList" :key="index">
                         <tr>
-                            <td x-text="machinery.name"></td>
-                            <td x-text="machinery.type"></td>
-                            <td x-text="machinery.problem"></td>
+                            <td x-text="machinery.organisation"></td>
+                            <td x-text="machinery.reg_number"></td>
+                            <td x-text="machinery.condition"></td>
+                            <td x-text="machinery.issue"></td>
                         </tr>
                     </template>
                 </tbody>
             </table>
         </section>
+        <div class="actions">
+            <button @click="goBack()">Back</button>
+        </div>
     </div>
+    <script>
+        function machineryAnalysis() {
+            return {
+                machineryList: [],
+                organisation: '',
+                reg_number: '',
+                condition: '',
+                issue: '',
+                addMachinery() {
+                    this.machineryList.push({
+                        organisation: this.organisation,
+                        reg_number: this.reg_number,
+                        condition: this.condition,
+                        issue: this.issue
+                    });
+                    this.organisation = '';
+                    this.reg_number = '';
+                    this.condition = '';
+                    this.issue = '';
+                },
+                goBack() {
+                    window.location.href = 'index.html';
+                }
+            };
+        }
+    </script>
 </body>
 </html>

@@ -13,9 +13,10 @@ body {
     padding: 20px;
 }
 
+/* Header */
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased space below the header */
 }
 
 h1 {
@@ -28,21 +29,21 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* Increased space below the form section */
 }
 
 .form-section h2 {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Increased space below the section heading */
     color: #333;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Increased space between form groups */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px; /* Increased space below the label */
     font-weight: bold;
 }
 
@@ -50,7 +51,7 @@ h1 {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Increased padding inside input fields */
     border-radius: 5px;
     border: 1px solid #ddd;
     box-sizing: border-box;
@@ -58,18 +59,19 @@ h1 {
 
 .form-group textarea {
     resize: vertical;
-    height: 100px;
+    height: 120px; /* Increased height of the textarea */
 }
 
 /* Button Styling */
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 20px; /* Increased padding inside the button */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 20px 0; /* Increased space above and below the button */
 }
 
 button:hover {
@@ -82,10 +84,11 @@ button:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px; /* Increased space below the table section */
 }
 
 .table-section h2 {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Increased space below the section heading */
     color: #333;
 }
 
@@ -96,7 +99,7 @@ table {
 
 table th,
 table td {
-    padding: 12px 15px;
+    padding: 15px; /* Increased padding inside table cells */
     text-align: left;
     border-bottom: 1px solid #ddd;
 }

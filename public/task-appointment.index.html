@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Appointment</title>
+    <link rel="stylesheet" href="task-appointment.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="main-container" x-data="{ taskList: [], organisation: '', task: '', assigner: '', assignee: '', status: '', deadline: '' }">
+        <header>
+            <h1>Task Appointment</h1>
+        </header>
+
+        <!-- Section to add new task -->
+        <section class="form-section">
+            <h2>Add New Task</h2>
+
+            <!-- Organisation Name -->
+            <div class="form-group">
+                <label for="organisation-name">Organisation:</label>
+                <input type="text" id="organisation-name" x-model="organisation" placeholder="Enter organisation name" required>
+            </div>
+
+            <!-- Task -->
+            <div class="form-group">
+                <label for="task-name">Task:</label>
+                <input type="text" id="task-name" x-model="task" placeholder="Enter task" required>
+            </div>
+
+            <!-- Assigner -->
+            <div class="form-group">
+                <label for="assigner-name">Assigner:</label>
+                <input type="text" id="assigner-name" x-model="assigner" placeholder="Enter assigner's name" required>
+            </div>
+
+            <!-- Assignee -->
+            <div class="form-group">
+                <label for="assignee-name">Assignee:</label>
+                <input type="text" id="assignee-name" x-model="assignee" placeholder="Enter assignee's name" required>
+            </div>
+
+            <!-- Status -->
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" x-model="status" required>
+                    <option value="" disabled>Select status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <!-- Deadline -->
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="date" id="deadline" x-model="deadline" required>
+            </div>
+
+            <!-- Add Button -->
+            <button @click="taskList.push({ organisation, task, assigner, assignee, status, deadline }); organisation = ''; task = ''; assigner = ''; assignee = ''; status = ''; deadline = '';">
+                Add Task
+            </button>
+        </section>
+
+        <!-- Table to display tasks -->
+        <section class="table-section">
+            <h2>Task List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Organisation</th>
+                        <th>Task</th>
+                        <th>Assigner</th>
+                        <th>Assignee</th>
+                        <th>Status</th>
+                        <th>Deadline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="(task, index) in taskList" :key="index">
+                        <tr>
+                            <td x-text="task.organisation"></td>
+                            <td x-text="task.task"></td>
+                            <td x-text="task.assigner"></td>
+                            <td x-text="task.assignee"></td>
+                            <td x-text="task.status"></td>
+                            <td x-text="task.deadline"></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>
