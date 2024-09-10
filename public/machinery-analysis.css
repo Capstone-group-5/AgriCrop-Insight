@@ -7,112 +7,63 @@ body {
 }
 
 /* Main container */
-.main-container {
+.crop-analysis-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Header */
-header {
-    text-align: center;
-    margin-bottom: 30px; /* Increased space below the header */
-}
-
 h1 {
+    text-align: center;
     color: #4CAF50;
+    margin-bottom: 30px;
 }
 
-/* Form Section */
-.form-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px; /* Increased space below the form section */
+/* Field sections */
+.field-section, .soil-quality, .environmental-factors, .crop-selection {
+    margin-bottom: 20px;
 }
 
-.form-section h2 {
-    margin-bottom: 25px; /* Increased space below the section heading */
-    color: #333;
-}
-
-.form-group {
-    margin-bottom: 25px; /* Increased space between form groups */
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 10px; /* Increased space below the label */
+/* Input labels and inputs */
+label {
     font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+input, select {
     width: 100%;
-    padding: 12px; /* Increased padding inside input fields */
+    padding: 12px;
     border-radius: 5px;
     border: 1px solid #ddd;
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
-.form-group textarea {
-    resize: vertical;
-    height: 120px; /* Increased height of the textarea */
+/* Actions (buttons) */
+.actions {
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the buttons */
 }
 
-/* Button Styling */
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 12px 20px; /* Increased padding inside the button */
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 20px 0; /* Increased space above and below the button */
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #45a049;
-}
-
-/* Table Section */
-.table-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px; /* Increased space below the table section */
-}
-
-.table-section h2 {
-    margin-bottom: 25px; /* Increased space below the section heading */
-    color: #333;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table th,
-table td {
-    padding: 15px; /* Increased padding inside table cells */
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-table th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-table tr:hover {
-    background-color: #f1f1f1;
-}
-
-table tr:last-child td {
-    border-bottom: none;
 }

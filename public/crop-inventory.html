@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Inventory</title>
+    <link rel="stylesheet" href="inventory.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="inventory-container" x-data="cropInventory()">
+        <header>
+            <h1>Crop Inventory</h1>
+        </header>
+
+        <!-- Input Section to Add Crops -->
+        <section class="input-section">
+            <div class="form-group">
+                <label for="crop-type">Crop Type:</label>
+                <input type="text" id="crop-type" x-model="newCropType" placeholder="Enter crop type">
+            </div>
+
+            <div class="form-group">
+                <label for="crop-yield">Crop Yield (kg/ha):</label>
+                <input type="number" id="crop-yield" x-model="newCropYield" placeholder="Enter crop yield">
+            </div>
+
+            <button @click="addCrop()">Add Crop</button>
+        </section>
+
+        <!-- Crop Inventory Table -->
+        <section class="table-section">
+            <h2>Crop Inventory List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Crop Type</th>
+                        <th>Yield (kg/ha)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="(crop, index) in crops" :key="index">
+                        <tr>
+                            <td x-text="crop.type"></td>
+                            <td x-text="crop.yield"></td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Go Back Button -->
+        <button class="go-back-btn" @click="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        function cropInventory() {
+            return {
+                newCropType: '',
+                newCropYield: '',
+                crops: [],
+
+                // Add new crop to the table
+                addCrop() {
+                    if (this.newCropType && this.newCropYield) {
+                        this.crops.push({ type: this.newCropType, yield: this.newCropYield });
+                        this.newCropType = '';
+                        this.newCropYield = '';
+                    } else {
+                        alert('Please fill out both fields.');
+                    }
+                },
+
+                // Go back function to navigate to index.html
+                goBack() {
+                    window.location.href = 'index.html';
+                }
+            };
+        }
+    </script>
+</body>
+</html>

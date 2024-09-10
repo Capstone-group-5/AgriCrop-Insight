@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div class="main-container" x-data="{ surname: '', email: '', userPassword: '', userRole: '', organisation: '' }">
+        <header>
+            <h1>Profile Information</h1>
+        </header>
+
+        <!-- Profile Input Fields -->
+        <section class="input-section">
+            <div class="form-group">
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" x-model="surname" placeholder="Enter your surname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" x-model="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="user-password">User Password:</label>
+                <input type="password" id="user-password" x-model="userPassword" placeholder="Enter your user password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="user-role">User Role:</label>
+                <input type="text" id="user-role" x-model="userRole" placeholder="Enter your user role" required>
+            </div>
+
+            <!-- Organisation Input Field -->
+            <div class="form-group">
+                <label for="organisation">Organisation:</label>
+                <input type="text" id="organisation" x-model="organisation" placeholder="Enter your organisation" required>
+            </div>
+
+            <button @click="saveProfile()">Save Profile</button>
+        </section>
+    </div>
+
+    <script>
+        function saveProfile() {
+            alert('Profile saved successfully!');
+            console.log({
+                surname: this.surname,
+                email: this.email,
+                userPassword: this.userPassword,
+                userRole: this.userRole,
+                organisation: this.organisation
+            });
+        }
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
-    <div class="main-container" x-data="{ taskList: [], organisation: '', task: '', assigner: '', assignee: '', status: '', deadline: '' }">
+    <div class="main-container" x-data="{ taskList: [], task: '', assigner: '', assignee: '', status: '' }">
         <header>
             <h1>Task Appointment</h1>
         </header>
@@ -16,12 +16,6 @@
         <!-- Section to add new task -->
         <section class="form-section">
             <h2>Add New Task</h2>
-
-            <!-- Organisation Name -->
-            <div class="form-group">
-                <label for="organisation-name">Organisation:</label>
-                <input type="text" id="organisation-name" x-model="organisation" placeholder="Enter organisation name" required>
-            </div>
 
             <!-- Task -->
             <div class="form-group">
@@ -52,12 +46,6 @@
                 </select>
             </div>
 
-            <!-- Deadline -->
-            <div class="form-group">
-                <label for="deadline">Deadline:</label>
-                <input type="date" id="deadline" x-model="deadline" required>
-            </div>
-
             <!-- Add Button -->
             <button @click="taskList.push({ organisation, task, assigner, assignee, status, deadline }); organisation = ''; task = ''; assigner = ''; assignee = ''; status = ''; deadline = '';">
                 Add Task
@@ -70,23 +58,19 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Organisation</th>
                         <th>Task</th>
                         <th>Assigner</th>
                         <th>Assignee</th>
                         <th>Status</th>
-                        <th>Deadline</th>
                     </tr>
                 </thead>
                 <tbody>
                     <template x-for="(task, index) in taskList" :key="index">
                         <tr>
-                            <td x-text="task.organisation"></td>
                             <td x-text="task.task"></td>
                             <td x-text="task.assigner"></td>
                             <td x-text="task.assignee"></td>
                             <td x-text="task.status"></td>
-                            <td x-text="task.deadline"></td>
                         </tr>
                     </template>
                 </tbody>
