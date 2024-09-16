@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #555540;
+    background-image: url('/farm.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
@@ -13,7 +13,7 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: #4B4B4B;
+    background-color: seagreen;
     padding: 20px;
     color: white;
     transition: transform 0.3s ease;
@@ -77,7 +77,8 @@ body {
 
 header {
     padding: 20px 0;
-    color: #fff;
+    /* color: #fff; */
+    color: darkolivegreen;
     text-align: center; 
 }
 
@@ -112,8 +113,8 @@ header h1 {
 }
 
 .feature-item {
-    background-color: #fff;
-    border-radius: 8px;
+    background-color: olivedrab;
+    border-radius: 20px;
     width: 200px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -139,7 +140,7 @@ header h1 {
 .feature-item p {
     margin-top: 10px;
     font-size: 16px;
-    color: #333;
+    color: #fff;
 }
 
 button {

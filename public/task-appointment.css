@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: coral;
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,10 +13,9 @@ body {
     width: 80%;
     max-width: 1200px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: coral;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 header {
@@ -33,9 +32,12 @@ header h1 {
 .form-section {
     margin-bottom: 30px;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-position: center;
+    justify-content: center;
+    align-items: center;
 }
 
 h2 {

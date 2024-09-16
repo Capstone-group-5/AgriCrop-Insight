@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: darkgreen;
     margin: 0;
     padding: 0;
 }
@@ -78,7 +78,7 @@ table th {
     position: fixed;
     bottom: 20px;
     left: 20px;
-    background-color: #4CAF50;
+    background-color: cornflowerblue;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
